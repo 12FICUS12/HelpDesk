@@ -1,0 +1,318 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Ticket Container */
+  #ticketsContainer {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    padding: 3px 20px;
+  }
+  
+  /* Ticket Styles */
+  .ticket {
+    background-color: #f9f9f9; /* Визуальные свойства */
+    border: solid black 1px;
+    display: flex;
+    flex-direction: column; /* Компоновка */
+    margin-bottom: -1px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимации */
+    width: 98%;
+  }
+  
+  /* Ticket Content */
+  .ticket-content {
+    display: flex;
+    align-items: center; /* Компоновка */
+    justify-content: space-between; /* Компоновка */
+    width: 100%;
+  }
+  
+  .ticket-content span {
+    word-wrap: break-word; /* Свойства текста */
+    white-space: pre-wrap; /* Свойства текста */
+    max-width: 65%;
+  }
+  
+  .ticket-content span:nth-of-type(1) {
+    font-size: 20px; /* Свойства текста */
+    margin-left: 10px; /* Отступы */
+  }
+  
+  .ticket-content span:nth-of-type(2) {
+    margin-right: 50px; /* Отступы */
+  }
+  
+  /* Ticket Description */
+  .ticket-details {
+    display: none;
+    padding-top: 10px;
+    border-top: 1px solid #ddd; /* Визуальные свойства */
+    margin-top: 10px; /* Отступы */
+    margin-left: 60px; /* Отступы */
+    font-size: 20px; /* Свойства текста */
+    color: #666; /* Визуальные свойства */
+    word-wrap: break-word; /* Свойства текста */
+    white-space: pre-wrap; /* Свойства текста */
+    max-width: 100%;
+  }
+  
+  /* Checkbox Styles */
+  .ticket input[type="checkbox"] {
+    appearance: none; /* Визуальные свойства */
+    width: 35px; /* Компоновка */
+    height: 35px; /* Компоновка */
+    border: 2px solid #ccc; /* Визуальные свойства */
+    border-radius: 50%; /* Визуальные свойства */
+    cursor: pointer; /* Свойства взаимодействия */
+    position: relative; /* Компоновка */
+    margin-right: 10px; /* Отступы */
+  }
+  
+  .ticket input[type="checkbox"]:checked {
+    background-color: #4caf50; /* Визуальные свойства */
+    border-color: #4caf50; /* Визуальные свойства */
+  }
+  
+  .ticket input[type="checkbox"]:checked::after {
+    content: "✓"; /* Содержимое */
+    position: absolute; /* Компоновка */
+    top: 50%; /* Компоновка */
+    left: 50%; /* Компоновка */
+    transform: translate(-50%, -50%); /* Компоновка */
+    color: white; /* Визуальные свойства */
+    font-size: 20px; /* Свойства текста */
+  }
+  
+  /* Time Formatting */
+  .ticket-time {
+    font-size: 20px; /* Свойства текста */
+    color: gray; /* Визуальные свойства */
+    margin-left: auto; /* Компоновка */
+  }
+  
+  /* Ticket Buttons */
+  .ticket button {
+    background: none; /* Визуальные свойства */
+    border: solid black 1px; /* Визуальные свойства */
+    cursor: pointer; /* Свойства взаимодействия */
+    font-size: 27px; /* Свойства текста */
+    color: #888; /* Визуальные свойства */
+    margin-left: 10px; /* Отступы */
+    transition: color 0.3s ease; /* Анимации */
+    width: 40px; /* Компоновка */
+    height: 40px; /* Компоновка */
+    border-radius: 50%; /* Визуальные свойства */
+    display: flex; /* Компоновка */
+    align-items: center; /* Компоновка */
+    justify-content: center; /* Компоновка */
+    position: relative; /* Компоновка */
+  }
+  
+  .ticket button:hover {
+    background-color: #f0f0f0; /* Визуальные свойства */
+  }
+  
+  .edit-btn {
+    color: rgb(95, 89, 89) !important; /* Визуальные свойства */
+  }
+  
+  .delete-btn {
+    color: red !important; /* Визуальные свойства */
+  }
+  
+  .edit-btn::after {
+    content: "✎"; /* Содержимое */
+    position: absolute; /* Компоновка */
+    top: 45%; /* Компоновка */
+    left: 50%; /* Компоновка */
+    transform: translate(-50%, -50%); /* Компоновка */
+  }
+  .delete-btn::after {
+    content: "x"; /* Содержимое */
+    position: absolute; /* Компоновка */
+    top: 46%; /* Компоновка */
+    left: 50%; /* Компоновка */
+    transform: translate(-50%, -50%); /* Компоновка */
+  }
+  
+  /* Add Ticket Button */
+  #addTicket {
+    background-color: #4caf50; /* Визуальные свойства */
+    color: white; /* Визуальные свойства */
+    padding: 12px 25px; /* Отступы */
+    border-radius: 5px; /* Визуальные свойства */
+    border: none; /* Визуальные свойства */
+    cursor: pointer; /* Свойства взаимодействия */
+    font-size: 16px; /* Свойства текста */
+    transition: background-color 0.3s ease; /* Анимации */
+    float: right; /* Компоновка */
+    margin-bottom: 20px; /* Отступы */
+    margin-right: 1%; /* Отступы */
+  }
+  
+  #addTicket:hover {
+    background-color: #45a049; /* Визуальные свойства */
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: flex; /* Компоновка */
+    position: fixed; /* Компоновка */
+    top: 0; /* Компоновка */
+    left: 0; /* Компоновка */
+    width: 100%; /* Компоновка */
+    height: 100%; /* Компоновка */
+    background-color: rgba(0, 0, 0, 0.5); /* Визуальные свойства */
+    justify-content: center; /* Компоновка */
+    align-items: center; /* Компоновка */
+    z-index: 999; /* Компоновка */
+    transition: opacity 0.3s ease; /* Анимации */
+  }
+  
+  .modalContent {
+    background-color: white; /* Визуальные свойства */
+    padding: 20px; /* Отступы */
+    border-radius: 10px; /* Визуальные свойства */
+    width: 45%; /* Компоновка */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Визуальные свойства */
+    position: absolute; /* Компоновка */
+    top: 50%; /* Компоновка */
+    left: 50%; /* Компоновка */
+    transform: translate(-50%, -50%); /* Компоновка */
+    animation: fadeIn 0.3s ease; /* Анимации */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0; /* Анимация */
+    }
+    to {
+      opacity: 1; /* Анимация */
+    }
+  }
+  
+  .modal h2 {
+    font-size: 20px; /* Свойства текста */
+    margin-bottom: 20px; /* Отступы */
+    margin-top: 1px; /* Отступы */
+    text-align: center; /* Свойства текста */
+    font-weight: 500; /* Свойства текста */
+  }
+  
+  .modal label {
+    display: block; /* Компоновка */
+    margin: 15px 0 5px; /* Отступы */
+  }
+  
+  .modal input,
+  .modal textarea {
+    width: 96%; /* Компоновка */
+    padding: 10px; /* Отступы */
+    border: 1px solid #ccc; /* Визуальные свойства */
+    outline: none; /* Свойства взаимодействия */
+  }
+  
+  .modal textarea {
+    height: 75px; /* Компоновка */
+    resize: vertical; /* Свойства взаимодействия */
+  }
+  
+  .modal #ticketDescription, #editTicketDescription {
+    margin-bottom: 20px; /* Отступы */
+  }
+  
+  .modal p {
+    margin-top: 25px; /* Отступы */
+  }
+  
+  .modal button {
+    background-color: #4CAF50; /* Визуальные свойства */
+    color: white; /* Визуальные свойства */
+    padding: 15px 25px; /* Отступы */
+    border: none; /* Визуальные свойства */
+    border-radius: 5px; /* Визуальные свойства */
+    cursor: pointer; /* Свойства взаимодействия */
+    font-size: 16px; /* Свойства текста */
+    transition: background-color 0.3s ease; /* Анимации */
+    margin-top: -5px; /* Отступы */
+  }
+  
+  .modal button:hover {
+    background-color: #45a049; /* Визуальные свойства */
+  }
+
+  /* Modal Styles */
+.modal {
+    background-color: #ffffff; /* Укажите нужный цвет фона для модального окна */
+    border-radius: 8px; /* Уголки для модального окна */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+    padding: 20px; /* Внутренние отступы */
+  }
+  
+  /* Button Styles */
+  #addTicket,
+  #editTicket,
+  #deleteTicket {
+    background-color: #45a049; /* Цвет кнопки */
+  }
+  
+  /* Button Hover Effects */
+  #addTicket:hover,
+  #editTicket:hover,
+  #deleteTicket:hover {
+    background-color: #388e3c; /* Темный зеленый цвет при наведении */
+  }
+  
+  .modalBtns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* Промежутки между кнопками */
+    margin-top: 6px; /* Отступ сверху */
+    margin-right: 5px; /* Отступ справа */
+  }
+  
+  .modal-btn-delete {
+    margin-top: 30px; /* Дополнительный отступ для кнопок удаления */
+  }
+  
+  .modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888; /* Цвет крестика закрытия */
+  }
+  
+  .modal .close:hover {
+    color: #333; /* Цвет крестика при наведении */
+  }
+  
+  /* Cancel Button Styles */
+  #closeTicket,
+  #closeEditTicket,
+  #closeDeleteTicket {
+    background-color: #f44336; /* Красный цвет для кнопки отмены */
+  }
+  
+  #closeTicket,
+  #closeEditTicket,
+  #closeDeleteTicket {
+    background-color: #912523; /* Темный красный цвет при наведении */
+  }
+  
+  /* Button Focus Shadow */
+  button:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Тень для кнопок при фокусе */
+  }
+  
+  /* Error Messages */
+  .message-error {
+    color: #f44336; /* Цвет сообщения об ошибке */
+    font-size: 14px; /* Размер шрифта сообщения об ошибке */
+    margin-top: 10px; /* Отступ сверху */
+    display: none; /* Скрыть сообщения по умолчанию */
+  }
