@@ -1,7 +1,8 @@
-import HelpDesk from "./HelpDesk.js";
+import HelpDesk from './HelpDesk.js';
+
+const baseURL = 'http://localhost:7070'; // Замените на ваш
+
 
 document.addEventListener("DOMContentLoaded", () => {
-const baseURL = "http://homeworks.com"
-
-  new HelpDesk(baseURL);
-});  
+    new HelpDesk(baseURL); // Создаем экземпляр HelpDesk после загрузки DOM
+});

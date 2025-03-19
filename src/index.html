@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>HelpDesk</title>
-    </head>
-    <body>
-        <button id="ticketAdd">Добавить тикет</button>
-        <div id="ticketContainer"></div>
-        <div class="modal" id="modalAdd">
-            <div class="modalContent">
-                <h2>Добавить тикет</h2>
-                <label class="ticketName">Краткое описание</label>
-                <input type="text" id="ticketName" name="ticketName"/>
-                <label class="ticketDescription">Подробное описание</label>
-                <textarea id="ticketDescription" name="ticketDescription" rows="5" required></textarea>
-                <div class="message-error" id="addMessageError"></div>
-                <div class="modalBtns">
-                    <button id="closeTicket">Отмена</button>
-                    <button id="addTicket">Ок</button>
-                    
-                </div>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HelpDesk</title>
+</head>
+<body>
+    <button id="ticketAdd">Добавить тикет</button>
+    <div id="ticketContainer"></div>
+
+    <!-- Модальное окно для добавления тикета -->
+    <div class="modal" id="modalAdd">
+        <div class="modalContent">
+            <h2>Добавить тикет</h2>
+            <label class="ticketName">Краткое описание</label>
+            <input type="text" id="ticketName" name="ticketName"/>
+            <label class="ticketDescription">Подробное описание</label>
+            <textarea id="ticketDescription" name="ticketDescription" rows="5" required></textarea>
+            <div class="message-error" id="addMessageError"></div>
+            <div class="modalBtns">
+                <button id="closeTicket">Отмена</button>
+                <button id="addTicket">Ок</button>
             </div>
         </div>
-        <div class="modal" id="modalEdit">
-            <div class="modalContent">
-                <h2>Изменить тикет</h2>
-                <label class="editTicketName">Краткое описание</label>
-                <input type="text" id="editTicketName" name="editTicketName"/>
-                <label class="editTicketDescription">Подробное описание</label>
-                <textarea id="editTicketDescription" name="editTicketDescription" rows="5" required></textarea>
-                <div class="message-error" id="editModalError"></div>
-                <div class="modalBtns">
-                    <button id="closeEditTicket">Отмена</button>
-                    <button id="editTicket">Ок</button>
-                    
-                </div>
+    </div>
+
+    <!-- Модальное окно для редактирования тикета -->
+    <div class="modal" id="modalEdit">
+        <div class="modalContent">
+            <h2>Изменить тикет</h2>
+            <label class="editTicketName">Краткое описание</label>
+            <input type="text" id="editTicketName" name="editTicketName"/>
+            <label class="editTicketDescription">Подробное описание</label>
+            <textarea id="editTicketDescription" name="editTicketDescription" rows="5" required></textarea>
+            <div class="message-error" id="editModalError"></div>
+            <div class="modalBtns">
+                <button id="closeEditTicket">Отмена</button>
+                <button id="editTicket">Ок</button>
             </div>
         </div>
-        <div class="modal" id="modalDelete">
-            <div class="modalContent">
-                <h2>Удалить тикет</h2>
-                <p>Вы уверены, что хотите удалить тикет? Это действие необратимо.</p>
-                <div class="modalBtns modal-btn-delete">
-                    <button id="closeDeleteTicket">Отмена</button>
-                    <button id="deleteTicket">Ок</button>
-                </div>
+    </div>
+
+    <!-- Модальное окно для удаления тикета -->
+    <div class="modal" id="modalDelete">
+        <div class="modalContent">
+            <h2>Удалить тикет</h2>
+            <p>Вы уверены, что хотите удалить тикет? Это действие необратимо.</p>
+            <div class="modalBtns">
+                <button id="closeDeleteTicket">Отмена</button>
+                <button id="deleteTicket">Ок</button>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>
